@@ -91,6 +91,7 @@ body {
 
     display: grid;
     grid-template-rows: min-content 1fr;
+    overflow-x: hidden;
 }
 
 /* make images easier to work with */
@@ -350,8 +351,22 @@ select {
     list-style: none;
     padding: 0;
     margin: 0;
-    background: hsl(var(--clr-white) / .1);
+    background: hsl(var(--clr-dark) / 0.95);
+    backdrop-filter: blur(2rem);
+
 }
+
+.mobile-nav-toggle {
+    display: none;
+}
+
+@supports (backdrop-filter: blur(1rem)) {
+    .primary-navigation {
+        background: hsl(var(--clr-white) / 0..05);
+        backdrop-filter: blur(1.5rem);
+    }
+}
+
 
 @media (max-width: 35rem) {
     .primary-navigation {
@@ -359,17 +374,49 @@ select {
         position: fixed;
         z-index: 1000;
         inset: 0 0 0 30%;
-       
+        transition:  500ms ease-in-out;
         list-style: none;
         padding: min(20rem, 15vh) 2rem;
         margin: 0;
         flex-direction: column;
+        transform: translateX(100%);
+       
     }
-    .primary-navigation.underline-indicators > .active{
+
+    .primary-navigation[data-visible="true"] {
+        transform: translateX(0);
+    }
+
+
+    .mobile-nav-toggle {
+        display: block;
+        position: absolute;
+        z-index: 2000;
+        right: 1rem;
+        top: 2rem;
+        background: transparent;
+        background-image: url(/starter-code/assets/shared/icon-hamburger.svg);
+        background-repeat: no-repeat;
+        background-position:center ;
+        width: 1.5rem;
+        aspect-ratio: 1;
+        border: 0;
+    }
+
+    .mobile-nav-toggle[aria-expanded="true"]{
+        background-image: url(/starter-code/assets/shared/icon-close.svg);
+    }
+    .mobile-nav-toggle:focus-visible {
+        outline: 2px solid white;
+        outline-offset: 5px;
+      
+    }
+
+    .primary-navigation.underline-indicators>.active {
 
         border: 0;
 
-    
+
     }
 }
 
@@ -429,24 +476,26 @@ select {
 
 /* home */
 
-body{
+body {
     background-size: cover;
     background-position: bottom center;
     background-repeat: no-repeat;
 }
+
 .home {
 
     background-image: url(../assets/home/background-home-mobile.jpg);
 }
 
 @media (min-width: 35rem) {
-    .home{
+    .home {
         background-position: center center;
         background-image: url(../assets/home/background-home-tablet.jpg);
     }
 }
+
 @media (min-width: 45rem) {
-    .home{
+    .home {
         background-image: url(../assets/home/background-home-desktop.jpg);
     }
 }
