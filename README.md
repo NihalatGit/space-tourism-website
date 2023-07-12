@@ -9,7 +9,7 @@ This is a personal project for practicing and improving coding skills. The Space
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [License](#license)
+- [Live Preview](#live-website)
 
 ## Introduction
 
@@ -49,4 +49,4 @@ However, you are free to use these codes!
 
 ## Live Website
 
-Check out the live website [here](https://sacetourismwebsite.netlify.app/).
+Check out the live website [here](https://space-tourism-web-site.netlify.app/).
