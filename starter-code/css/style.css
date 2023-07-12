@@ -345,13 +345,25 @@ select {
     transform: scale(1.5);
 }
 
+/* primary header */
+
+.logo {
+    margin: 1.5rem clamp(1.5rem, 5vw, 3.5rem);
+
+}
+
+.primary-header {
+    justify-content: space-between;
+    align-items: center;
+}
 
 .primary-navigation {
+    --gap: clamp(1.5rem, 5vw, 3.5rem);
     --underline-gap: 2rem;
     list-style: none;
     padding: 0;
     margin: 0;
-    background: hsl(var(--clr-dark) / 0.95);
+    background: hsl(var(--clr-dark) / 1);
     backdrop-filter: blur(2rem);
 
 }
@@ -362,7 +374,7 @@ select {
 
 @supports (backdrop-filter: blur(1rem)) {
     .primary-navigation {
-        background: hsl(var(--clr-white) / 0..05);
+        background: hsl(var(--clr-white) / 0.07);
         backdrop-filter: blur(1.5rem);
     }
 }
@@ -374,13 +386,13 @@ select {
         position: fixed;
         z-index: 1000;
         inset: 0 0 0 30%;
-        transition:  500ms ease-in-out;
+        transition: 500ms ease-in-out;
         list-style: none;
         padding: min(20rem, 15vh) 2rem;
         margin: 0;
         flex-direction: column;
         transform: translateX(100%);
-       
+
     }
 
     .primary-navigation[data-visible="true"] {
@@ -397,20 +409,24 @@ select {
         background: transparent;
         background-image: url(/starter-code/assets/shared/icon-hamburger.svg);
         background-repeat: no-repeat;
-        background-position:center ;
+        background-position: center;
         width: 1.5rem;
         aspect-ratio: 1;
         border: 0;
     }
 
-    .mobile-nav-toggle[aria-expanded="true"]{
+    .mobile-nav-toggle[aria-expanded="true"] {
         background-image: url(/starter-code/assets/shared/icon-close.svg);
     }
+
     .mobile-nav-toggle:focus-visible {
         outline: 2px solid white;
         outline-offset: 5px;
-      
+
     }
+
+
+
 
     .primary-navigation.underline-indicators>.active {
 
@@ -418,6 +434,46 @@ select {
 
 
     }
+}
+
+@media (min-width: 35em) {
+    .primary-navigation {
+        padding-inline: clamp(3rem, 7vw, 7rem);
+    }
+}
+
+
+@media (min-width: 35em) and (max-width: 44.999em) {
+
+
+    .primary-navigation a>span {
+        display: none;
+    }
+}
+
+@media (min-width: 45rem) {
+
+    .primary-header::after {
+        content: "";
+        display: block;
+        position: relative;
+        height: 1px;
+        background: hsl(var(--clr-white) / .25);
+        width: 100%;
+        margin-right: -2.5rem;
+        order: 1;
+        z-index: 1000 !important;
+    }
+
+    nav {
+        order: 2;
+    }
+
+    .primary-navigation {
+        margin-block: 2rem;
+
+    }
+
 }
 
 .primary-navigation a {
