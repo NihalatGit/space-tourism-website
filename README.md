@@ -1,7 +1,7 @@
 # Space Tourism Website
 
 <p align="center">
-  <em>A personal project for practicing and improving coding skills.</em>
+  <em>A personal project for practicing and improving coding skills from Frontend Mentor.</em>
 </p>
 
 <p align="center">
