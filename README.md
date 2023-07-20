@@ -1,5 +1,5 @@
 # Space Tourism Website
-
+Check out the live website [here](https://space-tourism-web-site.netlify.app/)
 <p align="center">
   <em>A personal project for practicing and improving coding skills from Frontend Mentor.</em>
 </p>
